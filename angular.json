@@ -87,6 +87,91 @@
           }
         }
       }
+    },
+    "carga-perezosa-defer": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/carga-perezosa-defer",
+      "sourceRoot": "projects/carga-perezosa-defer/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/carga-perezosa-defer/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/carga-perezosa-defer/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/carga-perezosa-defer/public"
+              }
+            ],
+            "styles": [
+              "projects/carga-perezosa-defer/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "carga-perezosa-defer:build:production"
+            },
+            "development": {
+              "buildTarget": "carga-perezosa-defer:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/carga-perezosa-defer/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/carga-perezosa-defer/public"
+              }
+            ],
+            "styles": [
+              "projects/carga-perezosa-defer/src/styles.css"
+            ]
+          }
+        }
+      }
     }
   }
 }
