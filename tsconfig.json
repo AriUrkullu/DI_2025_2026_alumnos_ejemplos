@@ -53,6 +53,12 @@
     },
     {
       "path": "./projects/proteger-rutas/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/multi-language/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/multi-language/tsconfig.spec.json"
     }
   ]
 }
