@@ -35,6 +35,12 @@
     },
     {
       "path": "./projects/carga-perezosa-defer/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/rutas-hijas-carga-perezosa-1/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/rutas-hijas-carga-perezosa-1/tsconfig.spec.json"
     }
   ]
 }
