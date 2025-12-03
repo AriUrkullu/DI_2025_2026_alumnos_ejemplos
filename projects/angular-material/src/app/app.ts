@@ -7,6 +7,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { Tabla } from './tabla/tabla';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatCheckboxModule, 
     MatFormFieldModule, 
     MatInputModule, 
-    MatSelectModule],
+    MatSelectModule,
+    Tabla],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
