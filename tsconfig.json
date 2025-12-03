@@ -59,6 +59,12 @@
     },
     {
       "path": "./projects/multi-language/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/angular-material/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/angular-material/tsconfig.spec.json"
     }
   ]
 }
