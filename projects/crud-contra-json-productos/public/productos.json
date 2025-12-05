@@ -1,0 +1,39 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Comedero mascotas",
+      "precio": 49.99
+    },
+    {
+      "id": "2",
+      "nombre": "Aspiradora",
+      "precio": 159
+    },
+    {
+      "id": "3",
+      "nombre": "Teléfono móvil",
+      "precio": 345
+    },
+    {
+      "id": "4",
+      "nombre": "Turrón",
+      "precio": 2.95
+    },
+    {
+      "id": "5",
+      "nombre": "Melocotón en almíbar",
+      "precio": 2.05
+    },
+    {
+      "id": "6",
+      "nombre": "Piña en rodajas",
+      "precio": 2.35
+    },
+    {
+      "id": "7",
+      "nombre": "Caja de bombones",
+      "precio": 12.95
+    }
+  ]
+}

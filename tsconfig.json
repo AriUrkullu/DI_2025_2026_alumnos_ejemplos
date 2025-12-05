@@ -65,6 +65,12 @@
     },
     {
       "path": "./projects/angular-material/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/crud-contra-json-productos/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/crud-contra-json-productos/tsconfig.spec.json"
     }
   ]
 }

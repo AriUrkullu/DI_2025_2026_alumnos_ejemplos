@@ -598,6 +598,91 @@
           }
         }
       }
+    },
+    "crud-contra-json-productos": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/crud-contra-json-productos",
+      "sourceRoot": "projects/crud-contra-json-productos/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/crud-contra-json-productos/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/crud-contra-json-productos/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/crud-contra-json-productos/public"
+              }
+            ],
+            "styles": [
+              "projects/crud-contra-json-productos/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "crud-contra-json-productos:build:production"
+            },
+            "development": {
+              "buildTarget": "crud-contra-json-productos:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/crud-contra-json-productos/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/crud-contra-json-productos/public"
+              }
+            ],
+            "styles": [
+              "projects/crud-contra-json-productos/src/styles.css"
+            ]
+          }
+        }
+      }
     }
   }
 }
