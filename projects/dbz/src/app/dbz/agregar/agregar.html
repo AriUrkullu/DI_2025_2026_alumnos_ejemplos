@@ -1,0 +1,17 @@
+<p>agregar works!</p>
+<h3>Agregar</h3>
+<hr>
+<form (submit)="agregar()">
+    <!-- Eso es event binding aplicado al evento submit de un formulario
+     - (submit) -> Angular se engancha al evento submit del <form>.
+     - "agregar()" -> cuando ocurre el evento, Angular ejecuta el método agregar() del componente. -->
+    <input type="text" placeholder="Nombre" name="nombre" [(ngModel)]="nuevo.nombre"/>
+    <!-- Es un tipo de binding, concretamente binding bidireccional (two-way binding). 
+     ngModel sirve para enlazar un campo de formulario con una propiedad del componente y mantenerlos sincronizados:
+     - Si el usuario escribe en el input → se actualiza nuevo.nombre / nuevo.poder.
+     - Si en TypeScript cambias nuevo.nombre / nuevo.poder → se actualiza el input.-->
+    <input type="number" placeholder="Poder" name="poder" [(ngModel)]="nuevo.poder"/>
+    <button type="submit">
+        Agregar
+    </button>
+</form>

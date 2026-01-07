@@ -1,0 +1,15 @@
+<h3>Personajes</h3>
+<hr>
+<ul>
+    <li *ngFor="let personaje of personajes">
+        {{personaje.nombre}} - {{personaje.poder | number}}
+        <!--| es un pipe/tubería, que es básicamente un transformador de datos para la plantilla:
+        - Toma un valor
+        - Lo transforma
+        - Devuelve el resultado solo para mostrarlo
+        - No modifica el dato original en TypeScript
+        Es solo presentación. 
+        
+        number es un pipe/tubería incorporado de Angular que formatea números para mostrarlos de forma legible según la localización. -->
+    </li>
+</ul>

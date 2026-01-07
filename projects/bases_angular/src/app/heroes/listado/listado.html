@@ -1,0 +1,94 @@
+<h1>COMIENZO COMPONENTE LISTADO</h1>
+<p>Listado de Héroes</p>
+
+<button (click)="borrarHeroe()">Borrar Heroe</button>
+
+<h3> BLOQUE 1:</h3>
+<div>
+    <h3>Heroe borrado</h3> 
+    <span>{{heroeBorrado}}</span>
+</div>
+
+<h3> BLOQUE 2:</h3>
+<div *ngIf="heroeBorrado">
+<ng-template #menor>
+    <h3>Heroe borrado: <small>{{heroeBorrado}}</small></h3>
+</ng-template>
+</div>
+<div *ngIf="!heroeBorrado">
+    <h3>No ha borrado nada.</h3>
+</div>
+
+<h3> BLOQUE 3:</h3>
+<div *ngIf="heroeBorrado then menor else mayor"></div>
+<ng-template #menor>
+    <p>Heroe borrado {{heroeBorrado}}</p>
+</ng-template>
+<ng-template #mayor>
+    <p>No has borrado nada</p>
+</ng-template>
+
+<h3> BLOQUE 4:</h3>
+<div *ngIf="heroeBorrado !==''">
+    <h3>Heroe borrado</h3>
+    <span>{{heroeBorrado}}</span>
+</div>
+
+<h3> BLOQUE 5:</h3>
+<p>Listado de Héroes</p>
+<div *ngIf="heroeBorrado; else noBorrado">
+    <h3>Heroe borrado: <small>{{heroeBorrado}}</small></h3> 
+</div>
+<ng-template #noBorrado>
+    <h3>No ha borrado nada.</h3> 
+</ng-template>
+
+<h3> BLOQUE 6:</h3>
+@if(heroeBorrado) {
+<h3>Heroe borrado: <small>{{heroeBorrado}}</small></h3>
+} @else if(!heroeBorrado) {
+<h3>No ha borrado nada.</h3>
+} @else {
+<div>Please Login</div>
+}
+
+<h3> BLOQUE 7:</h3>
+@if(heroeBorrado){<p>Heroe borrado {{heroeBorrado}}</p>}
+@else {<p>No has borrado nada</p>}
+
+<h3> BLOQUE 8:</h3>
+@if (heroeBorrado) {
+  <h3>Héroe borrado: <small>{{ heroeBorrado }}</small></h3>
+} @else {
+  <h3>No ha borrado nada.</h3>
+}
+
+<h3> BLOQUE 8:</h3>
+<ul>
+    <li *ngFor="let heroe of heroes; let i=index">
+      <!-- let i=index crea una variable local i que vale el índice (0, 1, 2, ...) -->
+       {{i+1}} - {{heroe}}
+    </li>
+</ul>
+
+<h3> BLOQUE 9:</h3>
+@for(item of heroes; track item){
+    <tr>
+        <td>{{item}}</td>
+    </tr>
+}
+
+<h3> BLOQUE 10:</h3>
+<ul>
+  @for (heroe of heroes; track heroe; let i = $index) {
+    <!-- let i=$index crea una variable local i que vale el índice (0, 1, 2, ...) -->
+    <li>
+      {{ i + 1 }} - {{ heroe }}
+    </li>
+  } @empty {
+    <!-- @empty sirve para definir qué HTML se muestra cuando el iterable (heroes en este caso) no tiene elementos -->
+    <li>No hay héroes para mostrar.</li>
+  }
+</ul>
+
+

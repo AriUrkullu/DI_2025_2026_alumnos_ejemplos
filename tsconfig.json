@@ -71,6 +71,18 @@
     },
     {
       "path": "./projects/crud-contra-json-productos/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/bases_angular/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/bases_angular/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/dbz/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/dbz/tsconfig.spec.json"
     }
   ]
 }

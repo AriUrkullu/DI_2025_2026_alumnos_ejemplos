@@ -1,0 +1,21 @@
+<h1>COMIENZO COMPONENTE HEROE</h1>
+<h1>Heroe Component Works</h1>
+<h1>{{nombre}}</h1>
+<dl>
+    <td>Nombre:</td>
+    <dd>{{nombre}}</dd>
+
+    <td>Edad:</td>
+    <dd>{{edad}}</dd>
+
+    <td>Funcion:</td>
+    <dd>{{obtenerNombre()}}</dd>
+
+    <td>Capitalizado:</td>
+    <dd>{{nombre.toUpperCase()}}</dd>
+    <dd>{{nombreCapitalizado}}</dd>
+</dl>
+
+<button (click)="cambiarNombre()">Cambiar Heroe</button>
+<!-- Binding unidireccional de tipo event binding, que en este caso llama a una función en la parte de TypeScript -->
+<button (click)="cambiarEdad()">Cambiar Edad</button>

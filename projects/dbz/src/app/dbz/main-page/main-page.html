@@ -1,0 +1,12 @@
+<p>Dragon Ball Z!</p>
+<hr>
+<div class="row">
+    <div class="col">
+        <app-personajes></app-personajes>
+    </div>
+    <div class="col">
+        <app-agregar [nuevo]="nuevo"></app-agregar>
+        <!--[nuevo]="nuevo" es property binding (binding unidireccional) y, en este caso, es un Input binding: 
+        se está pasando datos del componente padre (MainPage) al componente hijo (Agregar).-->
+    </div>
+</div>

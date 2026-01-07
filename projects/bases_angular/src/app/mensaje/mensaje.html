@@ -1,0 +1,12 @@
+<h1>COMIENZO COMPONENTE MENSAJE</h1>
+<p>mensaje works!</p>
+
+<button (click)="cambio()">Exito/Fracaso</button>
+
+<p [ngClass]="{'exito': esExito, 'error': !esExito}">
+  <!-- ngClass es una directiva de Angular que sirve para añadir o quitar dinámicamente clases CSS dinámicamente a un elemento del DOM.
+  Aplicará exito si esExito es true y error si esExito es false. Concretamente, con [ngClass]="..." lo que se está haciendo es binding unidireccional (de typescript al DOM) de tipo property binding.
+  Básicamente Angular actualiza la propiedad del elemento cuando cambia el estado de la variable esExito en la parte de TypeScript. -->
+  {{ esExito ? '¡Operación exitosa!' : '¡Error en la operación!' }}
+</p>
+

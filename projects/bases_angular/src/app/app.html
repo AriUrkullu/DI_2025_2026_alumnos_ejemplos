@@ -1,0 +1,96 @@
+<h1>COMIENZO COMPONENTE APP</h1>
+<!-- Plantilla HTML del componente App. Aquí defines la estructura inicial que se renderiza (por ejemplo el <router-outlet> y un layout básico). -->
+<h1 style="text-align: center;">Bienvenido a {{titulo}}</h1>
+<!-- Con {{titulo}} hacemos binding unidireccional, de forma que si titulo cambia en el componente, el HTML se actualiza, pero si cambia el HTML, no cambia titulo.-->
+
+<p>Nombre del empleado: {{nombre}}</p>
+<p>Edad: {{edad}} Ya me gustaria!</p>
+
+<p>Sueldos: {{sueldos[0]}}, {{sueldos[1]}}, {{sueldos[2]}} euros</p>
+<!-- Aquí se hace el mismo bindin unidireccional, pero sobre valores específicos de un array -->
+
+<p>Es una funcion, lleva llaves: {{esActivo()}}</p>
+<!-- Mismo tipo de binding unidireccional, pero sobre el resultado de una función. En estos casos, 
+ básicamente lo que se hace es que cada vez que se tenga que renderizar la vista, se ejecuta esActivo() y muestra lo que devuelva -->
+
+<p>En este sitio  <a href="{{sitio}}">Ir a GOOGLE</a></p>
+<!-- Mismo tipo de binding unidireccional pero aplicado a un atribut HTML -->
+
+<p>Suma de sueldos1: {{sumaSueldos1()}}</p>
+<p>Suma de sueldos2: {{sumaSueldos2()}}</p>
+<p>Suma de sueldos3: {{sumaSueldos3()}}</p>
+<p>Suma de sueldos4: {{sumaSueldos4()}}</p>
+
+<div *ngIf="edad>=18; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><p>Es mayor de edad</p></ng-template>
+<ng-template #elseBlock><p>No es mayor de edad</p></ng-template>
+<!-- Uso de la directiva estructural antigua *ngIf. ng-template es un contenenedor plantilla que no se renderiza por si mismo, 
+ no aparece en el DOM (Document Object Model, que es la representación en memoria que el navegador hace de una página HTML para poder leerla, modificarla 
+ y reaccionar a eventos) final, solo sirve como plantilla reutilizable y Angulor lo usa para crear vistas dinámicamente. 
+ thenBlock y elseBlock son las referencias de plantilla. Es decir, al declarar un ng-template #thenblock, el ng-template #thenblock no se va a pintar, 
+ pero va a quedar disponible para ser referenciado mediante el nombre thenBlock para pintarlo cuando se le llame, como se hace desde la directiva *ngIf. -->
+
+<table border="1">
+    <tr>
+        <td>Sueldos</td>
+    </tr>
+    <tr *ngFor="let sueldo of sueldos">
+        <!-- Aquí la directiva estructural antigua *ngFor para cada elemento de sueldos crea una variable local llamada sueldo. -->
+        <td>{{sueldo}}</td>
+    </tr>
+</table>
+
+@if(edad <18){<p>Es menor de edad</p>}
+	@else if(edad <100){<p>Es mayor de edad</p>}
+	@else {<p>ERROR</p>}
+
+    @if(edad >= 18){<p>Es mayor de edad</p>}
+@else {<p>No es mayor de edad</p>}
+<!-- Directivas estructurales nuevas @if y @else -->
+
+<table border="1">
+    <tr>
+        <th>Sueldos</th>
+    </tr>
+    @for(item of sueldos; track item){
+    <!-- Directiva estructural nueva @for que recorre el array sueldos y en cada iteración deja en item un elemento distinto de sueldos 
+     (si los elementos de sueldos son objetos, quedará en item una referencia al objeto correspondiente, de forma que si se modifica item, se modifica el objeto en el array), 
+     siendo item una variable local de la plantilla. La parte track item le dice a Angular qué usar como clave para reconocer si dos elementos son el mismo no. 
+     En este caso se usa el propio objeto como identificador. -->
+        <tr>
+            <td>{{item}}</td>
+        </tr>
+    }
+</table>
+
+<H1>{{titulo}}</H1>
+<button (click)="numero=numero + 1;">+ 1</button>
+<!-- Event binding, que es binding unidireccional, pero en el sentido de que el evento ocurre en el DOM (click), Angular ejecuta el código del componente y el estado cambia en TypeScript.
+     click="..." es sintaxis Angular por la que Angular se suscribe al evento DOM click y lo pasa al sistema de detección de cambios. 
+     numero=numero + 1 es código JavaScript normal que se ejecuta dentro del contexto del componente. -->
+<span>{{numero}}</span>
+<button (click)="numero=numero - 1;">- 1</button>
+
+<H1>{{titulo}}</H1>
+<button (click)=sumar()>+ 1</button>
+<span>{{numero}}</span>
+<button (click)="restar()">- 1</button>
+
+<H1>{{titulo}}</H1>
+<button (click)="acumular(1)">+ 1</button>
+<span>{{numero}}</span>
+<button (click)="acumular(-1)">- 1</button>
+
+<H1>{{titulo}}</H1>
+<h3>La base es: <strong> {{base}}</strong></h3>
+<button (click)="acumular(base)">+ {{base}}</button>
+<span>{{numero}}</span>
+<button (click)="acumular(-base)">- {{base}}</button>
+
+<app-heroe></app-heroe>
+<!-- Es un componente Angular usado como etiqueta HTML. Angular encuentra esta etiqueta, crea una instancia del componente Heroe, ejecuta su lógica, 
+ renderiza su plantilla e inserta el resultado en el DOM. Es una composición de componentes. -->
+
+<app-listado></app-listado>
+
+<app-mensaje></app-mensaje>
